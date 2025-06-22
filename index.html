@@ -4,156 +4,478 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAKFLOW AI - Automatisation Intelligente pour PME/TPE</title>
+    <meta name="description" content="OAKFLOW AI accompagne les PME & TPE avec l'automatisation des tâches pilotée par l'IA. Expertise business + IA par Cyril DE LA RUE.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0A0F1C;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
             color: #ffffff;
         }
-        .header {
-            background: #0A0F1C;
-            padding: 20px;
-            text-align: center;
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .logo {
-            color: #00D4AA;
-            font-size: 32px;
-            font-weight: bold;
+        
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
         }
-        .tagline {
-            color: #00D4AA;
-            font-size: 18px;
-            margin: 10px 0;
+        
+        .card-hover {
+            transition: all 0.3s ease;
         }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
         }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffffff;
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            transition: all 0.3s ease;
         }
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            color: #cccccc;
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
         }
-        .cta {
-            background: #00D4AA;
-            color: #0A0F1C;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
+        
+        .nav-link {
+            transition: color 0.3s ease;
         }
-        .articles {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .nav-link:hover {
+            color: #10b981;
         }
-        .articles h2 {
-            text-align: center;
-            color: #00D4AA;
-            margin-bottom: 40px;
+        
+        .section-padding {
+            padding: 80px 0;
         }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-        .article-card {
-            background: #1a1f2e;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #00D4AA;
-        }
-        .article-card h3 {
-            color: #00D4AA;
-            margin-bottom: 15px;
-        }
-        .article-card p {
-            color: #cccccc;
-            margin-bottom: 20px;
-        }
-        .read-more {
-            color: #00D4AA;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .read-more:hover {
-            text-decoration: underline;
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">OAKFLOW AI</div>
-        <div class="tagline">Automatisation Intelligente</div>
-    </header>
 
-    <section class="hero">
-        <h1>Accompagner les PME & TPE avec l'automatisation des tâches pilotée par l'IA</h1>
-        <p>Expert en automatisation avec 20 ans d'expérience business chez ALL/Appart'City, certifié Google Analytics et spécialiste en solutions IA pour transformer votre productivité.</p>
-        <a href="mailto:cyril@oakflowai.com" class="cta">Devis Offert</a>
-    </section>
-
-    <section class="articles">
-        <h2>Découvrez nos guides pratiques et analyses sur l'automatisation pour PME/TPE</h2>
-        <div class="articles-grid">
-            <div class="article-card">
-                <h3>Guide complet : Automatiser sa comptabilité client-fournisseur</h3>
-                <p>Découvrez comment automatiser vos processus comptables pour gagner jusqu'à 70% de temps sur la saisie et le suivi des factures.</p>
-                <a href="/blog/guide-automatiser-comptabilite/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">10 min de lecture</div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold gradient-text">OAKFLOW AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#apropos" class="nav-link">À propos</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-white font-medium">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
             </div>
+        </div>
+    </nav>
 
-            <div class="article-card">
-                <h3>5 processus prioritaires à automatiser dans votre PME</h3>
-                <p>Facturation, CRM, marketing, RH, reporting : identifiez les quick wins pour un ROI immédiat sur vos investissements automatisation.</p>
-                <a href="/blog/processus-prioritaires-pme/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">8 min de lecture</div>
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-bg section-padding pt-32">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-float mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-24 w-24 mx-auto mb-6">
             </div>
-
-            <div class="article-card">
-                <h3>ROI de l'automatisation : calculs et exemples réels</h3>
-                <p>Méthodes de calcul, KPIs à suivre et template Excel gratuit pour mesurer l'impact de vos projets d'automatisation.</p>
-                <a href="/blog/roi-automatisation-calculs/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">12 min de lecture</div>
-            </div>
-
-            <div class="article-card">
-                <h3>n8n vs Make vs Zapier : le guide du dirigeant</h3>
-                <p>Comparatif objectif des 3 plateformes leaders avec recommandations selon votre taille d'entreprise et vos besoins spécifiques.</p>
-                <a href="/blog/n8n-vs-make-vs-zapier/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">15 min de lecture</div>
-            </div>
-
-            <div class="article-card">
-                <h3>Directeur Expert IA : le métier d'avenir pour les PME</h3>
-                <p>Découvrez pourquoi recruter un Directeur Expert IA transforme la compétitivité de votre entreprise et comment évaluer ce profil.</p>
-                <a href="/blog/directeur-expert-ia/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">7 min de lecture</div>
-            </div>
-
-            <div class="article-card">
-                <h3>Formation équipe automatisation : guide complet PME/TPE</h3>
-                <p>Stratégies et méthodes pour former efficacement vos équipes aux outils d'automatisation et garantir l'adoption des nouveaux processus.</p>
-                <a href="/blog/formation-equipe-automatisation/" class="read-more">Lire l'article →</a>
-                <div style="margin-top: 10px; color: #888; font-size: 14px;">9 min de lecture</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Automatisation <span class="gradient-text">Intelligente</span><br>
+                pour PME & TPE
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                20 ans d'expertise business + spécialisation IA cutting-edge.<br>
+                Transformez vos processus avec l'automatisation pilotée par l'intelligence artificielle.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-lg text-white font-semibold text-lg">
+                    Devis Offert
+                </a>
+                <a href="#services" class="border border-green-500 hover:bg-green-500 hover:bg-opacity-20 px-8 py-4 rounded-lg text-white font-semibold text-lg transition-all">
+                    Découvrir nos Services
+                </a>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; background: #1a1f2e;">
-        <p>&copy; 2024 OAKFLOW AI - Automatisation Intelligente pour PME/TPE</p>
-        <p>
-            <a href="mailto:cyril@oakflowai.com" style="color: #00D4AA;">cyril@oakflowai.com</a> | 
-            <a href="https://www.oakflowai.com" style="color: #00D4AA;">www.oakflowai.com</a>
-        </p>
-    </footer>
-</body>
-</html>
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Nos <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Des solutions d'automatisation sur-mesure adaptées aux besoins spécifiques des PME et TPE
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-3xl font-bold text-green-500 mb-4">1 499€</div>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Audit complet</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>1-2 workflows automatisés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation équipe</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support 30 jours</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary w-full py-3 rounded-lg text-center block">Commencer</a>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border-2 border-green-500 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-black px-4 py-1 rounded-full text-sm font-bold">
+                        POPULAIRE
+                    </div>
+                    <div class="text-cyan-500 text-4xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Pro</h3>
+                    <div class="text-3xl font-bold text-cyan-500 mb-4">2 799€</div>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Audit approfondi</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>3-5 workflows complexes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégrations API</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support 90 jours</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dashboard analytics</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary w-full py-3 rounded-lg text-center block">Choisir Pro</a>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Entreprise</h3>
+                    <div class="text-3xl font-bold text-blue-500 mb-4">Sur devis</div>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Solution complète</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Workflows illimités</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>IA personnalisée</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support prioritaire</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Accompagnement continu</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary w-full py-3 rounded-lg text-center block">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="section-padding">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        À propos <span class="gradient-text">OAKFLOW AI</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        <strong>Cyril DE LA RUE</strong> combine 20 ans d'expérience en gestion client et comptabilité 
+                        avec une spécialisation cutting-edge en automatisation IA.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8">
+                        Ancien directeur de centre de profit chez <strong>ALL/Appart'City</strong> et certifié 
+                        <strong>Google Analytics</strong>, il maîtrise parfaitement les enjeux data et opérationnels des PME/TPE.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                            <div class="text-green-500 text-2xl mb-2"><i class="fas fa-briefcase"></i></div>
+                            <div class="text-2xl font-bold">20 ans</div>
+                            <div class="text-gray-400">Expérience business</div>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                            <div class="text-cyan-500 text-2xl mb-2"><i class="fas fa-robot"></i></div>
+                            <div class="text-2xl font-bold">Expert IA</div>
+                            <div class="text-gray-400">Spécialiste automation</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Spécialiste n8n/Make/Zapier
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Certifié Google Analytics
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Expert Agents IA conversationnels
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-green-500 to-cyan-500 p-1 rounded-2xl inline-block">
+                        <div class="bg-gray-900 p-8 rounded-2xl">
+                            <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-32 w-32 mx-auto mb-6">
+                            <h3 class="text-2xl font-bold gradient-text mb-4">Vision OAKFLOW AI</h3>
+                            <p class="text-gray-300">
+                                "Libérer le potentiel des PME/TPE grâce à l'automatisation intelligente, 
+                                pour qu'elles puissent se concentrer sur leur cœur de métier."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Blog</span> & Expertise
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Découvrez nos articles sur l'automatisation IA et les meilleures pratiques pour les PME/TPE
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-calculator text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Guide complet : Automatiser sa comptabilité client-fournisseur</h3>
+                        <p class="text-gray-400 mb-4">Processus détaillé pour automatiser votre comptabilité et gagner du temps précieux.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">5 min de lecture</span>
+                            <a href="/blog/guide-automatiser-comptabilite/" class="text-green-500 hover:text-green-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-cyan-500 mb-4">
+                            <i class="fas fa-list-check text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">5 processus prioritaires à automatiser dans votre PME</h3>
+                        <p class="text-gray-400 mb-4">Facturation, CRM, marketing, RH... Découvrez les automatisations les plus rentables.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">7 min de lecture</span>
+                            <a href="/blog/processus-prioritaires-pme/" class="text-cyan-500 hover:text-cyan-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-blue-500 mb-4">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">ROI de l'automatisation : calculs et exemples réels</h3>
+                        <p class="text-gray-400 mb-4">Méthodes de calcul et études de cas concrètes pour mesurer votre retour sur investissement.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">10 min de lecture</span>
+                            <a href="/blog/roi-automatisation-calculs/" class="text-blue-500 hover:text-blue-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-purple-500 mb-4">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">n8n vs Make vs Zapier : le guide du dirigeant</h3>
+                        <p class="text-gray-400 mb-4">Comparatif objectif des 3 plateformes leaders avec recommandations selon votre taille d'entreprise.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">15 min de lecture</span>
+                            <a href="/blog/n8n-vs-make-vs-zapier/" class="text-purple-500 hover:text-purple-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-orange-500 mb-4">
+                            <i class="fas fa-user-tie text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Directeur Expert IA : le métier d'avenir pour les PME</h3>
+                        <p class="text-gray-400 mb-4">Découvrez pourquoi recruter un Directeur Expert IA transforme la compétitivité de votre entreprise.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">8 min de lecture</span>
+                            <a href="/blog/directeur-expert-ia/" class="text-orange-500 hover:text-orange-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700">
+                    <div class="p-6">
+                        <div class="text-red-500 mb-4">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Formation équipe automatisation : guide complet PME/TPE</h3>
+                        <p class="text-gray-400 mb-4">Stratégies et méthodes pour former efficacement vos équipes aux outils d'automatisation.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">12 min de lecture</span>
+                            <a href="/blog/formation-equipe-automatisation/" class="text-red-500 hover:text-red-400">Lire →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Portfolio</span> & Cas d'usage
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Découvrez nos réalisations et cas d'usage par secteur d'activité
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-green-500 text-3xl mb-4">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secteur Hôtellerie</h3>
+                    <p class="text-gray-400 mb-4">Automatisation des réservations, check-in/check-out, et gestion des avis clients.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Réduction 70% temps administratif</li>
+                        <li>• Amélioration satisfaction client</li>
+                        <li>• Optimisation pricing automatique</li>
+                    </ul>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-cyan-500 text-3xl mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">E-commerce</h3>
+                    <p class="text-gray-400 mb-4">Gestion automatisée des commandes, stocks, et relation client multicanal.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Synchronisation stocks temps réel</li>
+                        <li>• Emails marketing automatisés</li>
+                        <li>• Suivi commandes optimisé</li>
+                    </ul>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Services B2B</h3>
+                    <p class="text-gray-400 mb-4">CRM automatisé, facturation intelligente, et suivi de la relation client.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Pipeline commercial automatisé</li>
+                        <li>• Facturation récurrente</li>
+                        <li>• Reporting activité en temps réel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-black mb-4">Prêt à transformer votre entreprise ?</h3>
+                    <p class="text-black mb-6">Démarrez avec un audit gratuit personnalisé de vos processus</p>
+                    <a href="#contact" class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all">
+                        Devis Offert
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Contactez-<span class="gradient-text">nous</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Prêt à automatiser vos processus ? Commençons par un audit offert !
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Parlons de votre projet</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-green-500 text-xl mr-4"></i>
+                            <span>cyril@oakflowai.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin text-green-500 text-xl mr-4"></i>
+                            <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" class="hover:text-green-500 transition-colors">
+                                linkedin.com/in/de-la-rue
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-green-500 text-xl mr-4"></i>
+                            <span>www.oakflowai.com</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h4 class="font-bold mb-3">Pourquoi choisir OAKFLOW AI ?</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                20 ans d'expérience business
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Expertise IA reconnue
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Approche sur-mesure PME/TPE
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                ROI garanti et mesurable
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nom *</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div>
