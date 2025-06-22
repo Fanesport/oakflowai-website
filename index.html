@@ -3,44 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAKFLOW AI - Automatisation Intelligente pour PME/TPE</title>
+    <title>OAKFLOW AI - Automatisation Intelligente pour PME & TPE</title>
+    <meta name="description" content="OAKFLOW AI accompagne les PME & TPE avec l'automatisation des tâches pilotée par l'IA. Expertise business + IA par Cyril DE LA RUE.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0A0F1C;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
             color: #ffffff;
         }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00D4AA 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00D4AA 0%, #06b6d4 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+        }
+        
+        .nav-link {
+            transition: color 0.3s ease;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            color: #00D4AA;
+        }
+        
         .header {
             background: #0A0F1C;
             padding: 20px;
             text-align: center;
         }
+        
         .logo {
             color: #00D4AA;
             font-size: 32px;
             font-weight: bold;
         }
+        
         .tagline {
             color: #00D4AA;
             font-size: 18px;
             margin: 10px 0;
         }
+        
         .hero {
             text-align: center;
             padding: 60px 20px;
         }
+        
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             color: #ffffff;
         }
+        
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
             color: #cccccc;
         }
+        
         .cta {
             background: #00D4AA;
             color: #0A0F1C;
@@ -49,59 +91,338 @@
             border-radius: 5px;
             font-weight: bold;
             display: inline-block;
+            transition: all 0.3s ease;
         }
+        
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+        }
+        
+        .section-padding {
+            padding: 80px 20px;
+        }
+        
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .services-section {
+            background: rgba(26, 31, 46, 0.5);
+            padding: 80px 20px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: rgba(26, 31, 46, 0.8);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 2px solid #333;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #00D4AA;
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        }
+        
+        .service-card.popular {
+            border-color: #00D4AA;
+            position: relative;
+        }
+        
+        .service-card.popular::before {
+            content: "POPULAIRE";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00D4AA;
+            color: #0A0F1C;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
         .articles {
             padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         .articles h2 {
             text-align: center;
             color: #00D4AA;
             margin-bottom: 40px;
         }
+        
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
+        
         .article-card {
             background: #1a1f2e;
             padding: 30px;
             border-radius: 10px;
             border-left: 4px solid #00D4AA;
+            transition: all 0.3s ease;
         }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        }
+        
         .article-card h3 {
             color: #00D4AA;
             margin-bottom: 15px;
         }
+        
         .article-card p {
             color: #cccccc;
             margin-bottom: 20px;
         }
+        
         .read-more {
             color: #00D4AA;
             text-decoration: none;
             font-weight: bold;
         }
+        
         .read-more:hover {
             text-decoration: underline;
+        }
+        
+        .methodology-section {
+            background: rgba(26, 31, 46, 0.5);
+            padding: 80px 20px;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+        
+        .methodology-card {
+            background: rgba(26, 31, 46, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .methodology-card:hover {
+            transform: translateY(-5px);
+            border-color: #00D4AA;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #00D4AA;
+            color: #0A0F1C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 auto 20px;
+        }
+        
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl font-bold" style="color: #00D4AA;">OAKFLOW AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                    <a href="#apropos" class="nav-link">À propos</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#methodologie" class="nav-link">Méthodologie</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-white font-medium">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="accueil" style="padding-top: 100px;">
         <div class="logo">OAKFLOW AI</div>
         <div class="tagline">Automatisation Intelligente</div>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
         <h1>Accompagner les PME & TPE avec l'automatisation des tâches pilotée par l'IA</h1>
         <p>Expert en automatisation avec 20 ans d'expérience business chez ALL/Appart'City, certifié Google Analytics et spécialiste en solutions IA pour transformer votre productivité.</p>
-        <a href="mailto:cyril@oakflowai.com" class="cta">Audit Gratuit</a>
+        <a href="mailto:cyril@oakflowai.com" class="cta">Devis Offert</a>
     </section>
 
-    <section class="articles">
+    <!-- About Section -->
+    <section id="apropos" class="about-section">
+        <div class="about-content">
+            <div>
+                <h2 style="color: #00D4AA; font-size: 36px; margin-bottom: 30px;">À propos <span class="gradient-text">OAKFLOW AI</span></h2>
+                <p style="color: #cccccc; font-size: 18px; margin-bottom: 20px;">
+                    <strong>Cyril DE LA RUE</strong> combine 20 ans d'expérience en gestion client et comptabilité 
+                    avec une spécialisation cutting-edge en automatisation IA.
+                </p>
+                <p style="color: #cccccc; font-size: 18px; margin-bottom: 30px;">
+                    Ancien directeur de centre de profit chez <strong>ALL/Appart'City</strong> et certifié 
+                    <strong>Google Analytics</strong>, il maîtrise parfaitement les enjeux data et opérationnels des PME/TPE.
+                </p>
+                
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px; color: #cccccc;">
+                        <i class="fas fa-check-circle" style="color: #00D4AA; margin-right: 15px;"></i>
+                        Spécialiste n8n/Make/Zapier
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 15px; color: #cccccc;">
+                        <i class="fas fa-check-circle" style="color: #00D4AA; margin-right: 15px;"></i>
+                        Certifié Google Analytics
+                    </div>
+                    <div style="display: flex; align-items: center; color: #cccccc;">
+                        <i class="fas fa-check-circle" style="color: #00D4AA; margin-right: 15px;"></i>
+                        Expert Agents IA conversationnels
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="background: linear-gradient(135deg, #00D4AA, #06b6d4); padding: 2px; border-radius: 20px; display: inline-block;">
+                    <div style="background: #0A0F1C; padding: 40px; border-radius: 18px;">
+                        <h3 style="color: #00D4AA; font-size: 24px; margin-bottom: 20px;">Vision OAKFLOW AI</h3>
+                        <p style="color: #cccccc;">
+                            "Libérer le potentiel des PME/TPE grâce à l'automatisation intelligente, 
+                            pour qu'elles puissent se concentrer sur leur cœur de métier."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="text-center" style="margin-bottom: 60px;">
+            <h2 style="color: #00D4AA; font-size: 36px; margin-bottom: 20px;">
+                Nos <span class="gradient-text">Services</span>
+            </h2>
+            <p style="color: #cccccc; font-size: 20px; max-width: 800px; margin: 0 auto;">
+                Des solutions d'automatisation sur-mesure adaptées aux besoins spécifiques des PME et TPE
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div style="color: #00D4AA; font-size: 48px; margin-bottom: 20px;">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Starter</h3>
+                <div style="color: #00D4AA; font-size: 32px; font-weight: bold; margin-bottom: 20px;">1 499€</div>
+                <ul style="color: #cccccc; text-align: left; margin-bottom: 30px; padding-left: 0; list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Audit complet</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>1-2 workflows automatisés</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Formation équipe</li>
+                    <li><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Support 30 jours</li>
+                </ul>
+                <a href="#contact" class="cta" style="display: block; text-align: center;">Commencer</a>
+            </div>
+
+            <div class="service-card popular">
+                <div style="color: #06b6d4; font-size: 48px; margin-bottom: 20px;">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Pro</h3>
+                <div style="color: #06b6d4; font-size: 32px; font-weight: bold; margin-bottom: 20px;">2 799€</div>
+                <ul style="color: #cccccc; text-align: left; margin-bottom: 30px; padding-left: 0; list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Audit approfondi</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>3-5 workflows complexes</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Intégrations API</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Support 90 jours</li>
+                    <li><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Dashboard analytics</li>
+                </ul>
+                <a href="#contact" class="cta" style="display: block; text-align: center;">Choisir Pro</a>
+            </div>
+
+            <div class="service-card">
+                <div style="color: #3b82f6; font-size: 48px; margin-bottom: 20px;">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Entreprise</h3>
+                <div style="color: #3b82f6; font-size: 32px; font-weight: bold; margin-bottom: 20px;">Sur devis</div>
+                <ul style="color: #cccccc; text-align: left; margin-bottom: 30px; padding-left: 0; list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Solution complète</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Workflows illimités</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>IA personnalisée</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Support prioritaire</li>
+                    <li><i class="fas fa-check" style="color: #00D4AA; margin-right: 10px;"></i>Accompagnement continu</li>
+                </ul>
+                <a href="#contact" class="cta" style="display: block; text-align: center;">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles -->
+    <section id="blog" class="articles">
         <h2>Découvrez nos guides pratiques et analyses sur l'automatisation pour PME/TPE</h2>
         <div class="articles-grid">
             <div class="article-card">
@@ -133,27 +454,121 @@
             </div>
 
             <div class="article-card">
-                <h3>De directeur à expert IA : mon parcours de transformation</h3>
-                <p>Mon retour d'expérience sur la transition du management traditionnel vers l'expertise en automatisation IA pour entreprises.</p>
+                <h3>Directeur Expert IA : le métier d'avenir pour les PME</h3>
+                <p>Découvrez pourquoi recruter un Directeur Expert IA transforme la compétitivité de votre entreprise et comment évaluer ce profil.</p>
                 <a href="/blog/directeur-expert-ia/" class="read-more">Lire l'article →</a>
                 <div style="margin-top: 10px; color: #888; font-size: 14px;">7 min de lecture</div>
             </div>
 
             <div class="article-card">
-                <h3>Pourquoi former votre équipe à l'automatisation IA</h3>
-                <p>L'importance de la conduite du changement et de la formation pour maximiser l'adoption et le ROI de vos projets automatisation.</p>
+                <h3>Formation équipe automatisation : guide complet PME/TPE</h3>
+                <p>Stratégies et méthodes pour former efficacement vos équipes aux outils d'automatisation et garantir l'adoption des nouveaux processus.</p>
                 <a href="/blog/formation-equipe-automatisation/" class="read-more">Lire l'article →</a>
                 <div style="margin-top: 10px; color: #888; font-size: 14px;">9 min de lecture</div>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; background: #1a1f2e;">
-        <p>&copy; 2024 OAKFLOW AI - Automatisation Intelligente pour PME/TPE</p>
-        <p>
-            <a href="mailto:cyril@oakflowai.com" style="color: #00D4AA;">cyril@oakflowai.com</a> | 
-            <a href="https://www.oakflowai.com" style="color: #00D4AA;">www.oakflowai.com</a>
-        </p>
-    </footer>
-</body>
-</html>
+    <!-- Methodology Section -->
+    <section id="methodologie" class="methodology-section">
+        <div class="text-center" style="margin-bottom: 60px;">
+            <h2 style="color: #00D4AA; font-size: 36px; margin-bottom: 20px;">
+                Notre <span class="gradient-text">Méthodologie</span> OAKFLOW
+            </h2>
+            <p style="color: #cccccc; font-size: 20px; max-width: 800px; margin: 0 auto;">
+                Une approche structurée et éprouvée pour garantir le succès de votre transformation digitale
+            </p>
+        </div>
+
+        <div class="methodology-grid">
+            <div class="methodology-card">
+                <div class="step-number">1</div>
+                <div style="color: #00D4AA; font-size: 36px; margin-bottom: 20px;">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 20px; margin-bottom: 15px;">Audit & Diagnostic</h3>
+                <p style="color: #cccccc; font-size: 14px;">
+                    Analyse complète de vos processus actuels, identification des goulots d'étranglement et opportunités d'automatisation.
+                </p>
+            </div>
+
+            <div class="methodology-card">
+                <div class="step-number" style="background: #06b6d4;">2</div>
+                <div style="color: #06b6d4; font-size: 36px; margin-bottom: 20px;">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 20px; margin-bottom: 15px;">Conception Workflow</h3>
+                <p style="color: #cccccc; font-size: 14px;">
+                    Design des workflows d'automatisation sur-mesure, sélection des outils optimaux et planification détaillée.
+                </p>
+            </div>
+
+            <div class="methodology-card">
+                <div class="step-number" style="background: #3b82f6;">3</div>
+                <div style="color: #3b82f6; font-size: 36px; margin-bottom: 20px;">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 20px; margin-bottom: 15px;">Implémentation</h3>
+                <p style="color: #cccccc; font-size: 14px;">
+                    Développement et mise en place des automatisations, tests rigoureux et déploiement progressif en production.
+                </p>
+            </div>
+
+            <div class="methodology-card">
+                <div class="step-number" style="background: #8b5cf6;">4</div>
+                <div style="color: #8b5cf6; font-size: 36px; margin-bottom: 20px;">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3 style="color: #ffffff; font-size: 20px; margin-bottom: 15px;">Formation & Support</h3>
+                <p style="color: #cccccc; font-size: 14px;">
+                    Formation complète de vos équipes, documentation détaillée et support continu pour garantir l'adoption.
+                </p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #00D4AA, #06b6d4); padding: 40px; border-radius: 20px; text-align: center; max-width: 800px; margin: 0 auto;">
+            <h3 style="color: #0A0F1C; font-size: 24px; margin-bottom: 20px; font-weight: bold;">Résultats Garantis</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                <div style="color: #0A0F1C;">
+                    <div style="font-size: 32px; font-weight: bold;">70%</div>
+                    <div style="font-weight: 600;">Réduction temps administratif</div>
+                </div>
+                <div style="color: #0A0F1C;">
+                    <div style="font-size: 32px; font-weight: bold;">300%</div>
+                    <div style="font-weight: 600;">ROI moyen première année</div>
+                </div>
+                <div style="color: #0A0F1C;">
+                    <div style="font-size: 32px; font-weight: bold;">95%</div>
+                    <div style="font-weight: 600;">Satisfaction client</div>
+                </div>
+            </div>
+            <a href="#contact" style="background: #0A0F1C; color: #ffffff; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block;">
+                Devis Offert
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="color: #00D4AA; font-size: 36px; margin-bottom: 20px;">
+                Contactez-<span class="gradient-text">nous</span>
+            </h2>
+            <p style="color: #cccccc; font-size: 20px; margin-bottom: 40px;">
+                Prêt à automatiser vos processus ? Commençons par un audit offert !
+            </p>
+            
+            <div style="background: rgba(26, 31, 46, 0.8); padding: 40px; border-radius: 20px; margin-bottom: 40px;">
+                <h3 style="color: #ffffff; font-size: 24px; margin-bottom: 30px;">Parlons de votre projet</h3>
+                <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <i class="fas fa-envelope" style="color: #00D4AA; font-size: 20px; margin-right: 20px; width: 20px;"></i>
+                        <span style="color: #cccccc;">cyril@oakflowai.com</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <i class="fab fa-linkedin" style="color: #00D4AA; font-size: 20px; margin-right: 20px; width: 20px;"></i>
+                        <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" style="color: #cccccc; text-decoration: none;">
+                            linkedin.com/in/de-la-rue
+                        </a>
+                    </div>
+                    <div style="
