@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAKFLOW AI - Automatisation Intelligente pour PME & TPE</title>
+    <meta name="description" content="OAKFLOW AI accompagne les PME & TPE avec l'automatisation des tâches pilotée par l'IA. Expertise business + IA par Cyril DE LA RUE.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #10b981;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .profile-image {
+            border-radius: 50%;
+            border: 4px solid #10b981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #374151;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 300px;
+        }
+        
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .blog-modal.active {
+            display: block;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #0A0F1C;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #10b981;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold gradient-text">OAKFLOW AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8 desktop-menu">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                    <a href="#apropos" class="nav-link">À propos</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#partenaires" class="nav-link">Partenaires</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="btn-primary px-4 py-2 rounded-lg text-white font-medium">
+                        <i class="fas fa-calendar-alt mr-2"></i>Réserver 30min
+                    </a>
+                    <button class="mobile-menu-btn md:hidden text-white" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu bg-black bg-opacity-95 p-4 rounded-lg mt-2">
+                <a href="#accueil" class="block py-2 nav-link">Accueil</a>
+                <a href="#apropos" class="block py-2 nav-link">À propos</a>
+                <a href="#services" class="block py-2 nav-link">Services</a>
+                <a href="#blog" class="block py-2 nav-link">Blog</a>
+                <a href="#portfolio" class="block py-2 nav-link">Portfolio</a>
+                <a href="#partenaires" class="block py-2 nav-link">Partenaires</a>
+                <a href="#faq" class="block py-2 nav-link">FAQ</a>
+                <a href="#contact" class="block py-2 nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-bg section-padding pt-32">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-float mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-24 w-24 mx-auto mb-6">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Libérez vos équipes des <span class="gradient-text">tâches répétitives</span><br>
+                20 ans d'expérience au service de votre transformation IA
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                Votre consultant senior en IA et Automatisation.<br>
+                Des solutions sur-mesure pour les PME/TPE : Audit, conseil et implémentation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="btn-primary px-8 py-4 rounded-lg text-white font-semibold text-lg">
+                    📞 Planifier un appel découverte gratuit (30 min)
+                </a>
+                <a href="#services" class="border border-green-500 hover:bg-green-500 hover:bg-opacity-20 px-8 py-4 rounded-lg text-white font-semibold text-lg transition-all">
+                    Découvrir nos Solutions
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 mt-4">✅ Sans engagement • ✅ Diagnostic personnalisé • ✅ Solutions concrètes</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Mon parcours : <span class="gradient-text">du Business à l'IA</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    L'expérience au service de votre transformation digitale
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Photo Section -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-green-500 to-cyan-500 p-1 rounded-2xl inline-block mb-6">
+                        <div class="bg-gray-900 p-3 rounded-2xl">
+                            <img src="https://page1.genspark.site/v1/base64_upload/0214aaeb29cbfe8603ae3cca5dda9bb7" 
+                                 alt="Cyril DE LA RUE" 
+                                 class="w-64 h-64 object-cover rounded-full border-4 border-green-500 mx-auto shadow-2xl">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold gradient-text mb-2">Cyril DE LA RUE</h3>
+                        <p class="text-xl text-gray-400 mb-6">Consultant Senior IA & Automatisation</p>
+                        
+                        <div class="grid grid-cols-3 gap-4 mt-6">
+                            <div class="text-center bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-green-500">20+</div>
+                                <div class="text-sm text-gray-400">Années Business</div>
+                            </div>
+                            <div class="text-center bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-cyan-500">100%</div>
+                                <div class="text-sm text-gray-400">Satisfaction</div>
+                            </div>
+                            <div class="text-center bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-blue-500">Expert</div>
+                                <div class="text-sm text-gray-400">Certifié IA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Section -->
+                <div>
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border-l-4 border-green-500">
+                            <h4 class="text-xl font-bold text-green-500 mb-3">📈 Mon Expérience Business (20 ans)</h4>
+                            <p class="text-gray-300">
+                                Après plus de 20 ans d'expérience en gestion client et comptabilité, notamment comme 
+                                <strong>directeur de centre de profit chez ALL/Appart'City</strong>, j'ai vu de l'intérieur 
+                                les défis de productivité que rencontrent les entreprises.
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border-l-4 border-cyan-500">
+                            <h4 class="text-xl font-bold text-cyan-500 mb-3">🚀 Ma Transition vers l'IA</h4>
+                            <p class="text-gray-300">
+                                J'ai décidé de me consacrer à l'automatisation et à l'IA, <strong>non pas pour la technologie elle-même, 
+                                mais pour permettre aux entreprises et à leurs équipes de se concentrer sur leur véritable valeur ajoutée.</strong>
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border-l-4 border-blue-500">
+                            <h4 class="text-xl font-bold text-blue-500 mb-3">🎯 Ma Vision OAKFLOW AI</h4>
+                            <p class="text-gray-300">
+                                "Libérer le potentiel des PME/TPE grâce à l'automatisation intelligente. 
+                                Mon expérience terrain me permet de comprendre vos vrais enjeux et de proposer 
+                                des solutions concrètes et rentables."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 mt-8">
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <strong>Spécialiste n8n/Make/Zapier</strong> - Maîtrise des 3 leaders
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <strong>Certifié Google Analytics</strong> - Expertise data et KPIs
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <strong>Expert Agents IA conversationnels</strong> - ChatGPT, Claude, etc.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Nos <span class="gradient-text">Solutions</span> Concrètes
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Des solutions d'automatisation sur-mesure avec exemples concrets et résultats mesurables
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Pack Découverte</h3>
+                    <div class="text-3xl font-bold text-green-500 mb-4">1 499€</div>
+                    <p class="text-gray-300 mb-4"><strong>Audit de vos processus pour identifier 3 tâches à automatiser immédiatement</strong></p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Automatisation facturation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Qualification prospects automatique</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégration chatbots service client</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support 30 jours</li>
+                    </ul>
+                    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="btn-primary w-full py-3 rounded-lg text-center block">Réserver un Audit</a>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border-2 border-green-500 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-black px-4 py-1 rounded-full text-sm font-bold">
+                        POPULAIRE
+                    </div>
+                    <div class="text-cyan-500 text-4xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Pack Transformation</h3>
+                    <div class="text-3xl font-bold text-cyan-500 mb-4">2 799€</div>
+                    <p class="text-gray-300 mb-4"><strong>Implémentation complète de 3-5 workflows automatisés</strong></p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>CRM automatisé complet</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Emails marketing séquencés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégrations API avancées</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dashboard analytics temps réel</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation équipe complète</li>
+                    </ul>
+                    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="btn-primary w-full py-3 rounded-lg text-center block">Planifier un Appel</a>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Pack Entreprise</h3>
+                    <div class="text-3xl font-bold text-blue-500 mb-4">Sur devis</div>
+                    <p class="text-gray-300 mb-4"><strong>Accompagnement continu et IA personnalisée</strong></p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Workflows illimités</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>IA conversationnelle sur-mesure</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégrations métier complexes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support prioritaire 24/7</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Consultant dédié</li>
+                    </ul>
+                    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="btn-primary w-full py-3 rounded-lg text-center block">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Blog</span> & Expertise
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Découvrez nos guides pratiques et analyses sur l'automatisation IA pour les PME/TPE
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog1')">
+                    <div class="p-6">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-user-tie text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">De directeur à expert IA : mon parcours de transformation</h3>
+                        <p class="text-gray-400 mb-4">Mon retour d'expérience sur la transition du management traditionnel vers l'expertise en automatisation IA.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">7 min de lecture</span>
+                            <span class="text-green-500 hover:text-green-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog2')">
+                    <div class="p-6">
+                        <div class="text-cyan-500 mb-4">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Pourquoi former votre équipe à l'automatisation IA</h3>
+                        <p class="text-gray-400 mb-4">L'importance de la conduite du changement et de la formation pour maximiser l'adoption et le ROI.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">9 min de lecture</span>
+                            <span class="text-cyan-500 hover:text-cyan-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog3')">
+                    <div class="p-6">
+                        <div class="text-blue-500 mb-4">
+                            <i class="fas fa-calculator text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Guide complet : Automatiser sa comptabilité client-fournisseur</h3>
+                        <p class="text-gray-400 mb-4">Découvrez comment automatiser vos processus comptables pour gagner jusqu'à 70% de temps.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">10 min de lecture</span>
+                            <span class="text-blue-500 hover:text-blue-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog4')">
+                    <div class="p-6">
+                        <div class="text-purple-500 mb-4">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">n8n vs Make vs Zapier : le guide du dirigeant</h3>
+                        <p class="text-gray-400 mb-4">Comparatif objectif des 3 plateformes leaders avec recommandations selon votre entreprise.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">15 min de lecture</span>
+                            <span class="text-purple-500 hover:text-purple-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog5')">
+                    <div class="p-6">
+                        <div class="text-orange-500 mb-4">
+                            <i class="fas fa-list-check text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">5 processus prioritaires à automatiser dans votre PME</h3>
+                        <p class="text-gray-400 mb-4">Facturation, CRM, marketing, RH... Découvrez les automatisations les plus rentables.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">8 min de lecture</span>
+                            <span class="text-orange-500 hover:text-orange-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-gray-800 bg-opacity-50 rounded-2xl overflow-hidden border border-gray-700 cursor-pointer" onclick="openBlogModal('blog6')">
+                    <div class="p-6">
+                        <div class="text-red-500 mb-4">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">ROI de l'automatisation : calculs et exemples réels</h3>
+                        <p class="text-gray-400 mb-4">Méthodes de calcul et études de cas concrètes pour mesurer votre retour sur investissement.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">12 min de lecture</span>
+                            <span class="text-red-500 hover:text-red-400">Lire →</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Portfolio</span> & Cas d'usage
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Découvrez nos réalisations et cas d'usage par secteur d'activité
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-green-500 text-3xl mb-4">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secteur Hôtellerie</h3>
+                    <p class="text-gray-400 mb-4">Automatisation des réservations, check-in/check-out, et gestion des avis clients.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Réduction 70% temps administratif</li>
+                        <li>• Amélioration satisfaction client</li>
+                        <li>• Optimisation pricing automatique</li>
+                    </ul>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-cyan-500 text-3xl mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">E-commerce</h3>
+                    <p class="text-gray-400 mb-4">Gestion automatisée des commandes, stocks, et relation client multicanal.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Synchronisation stocks temps réel</li>
+                        <li>• Emails marketing automatisés</li>
+                        <li>• Suivi commandes optimisé</li>
+                    </ul>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Services B2B</h3>
+                    <p class="text-gray-400 mb-4">CRM automatisé, facturation intelligente, et suivi de la relation client.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Pipeline commercial automatisé</li>
+                        <li>• Facturation récurrente</li>
+                        <li>• Reporting activité en temps réel</li>
+                    </ul>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
+                    <div class="text-yellow-500 text-3xl mb-4">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Comptabilité</h3>
+                    <p class="text-gray-400 mb-4">Automatisation des processus comptables, rapprochements bancaires, et reporting financier.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Saisie automatique factures</li>
+                        <li>• Rapprochements bancaires</li>
+                        <li>• Reporting financier automatisé</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-black mb-4">Prêt à transformer votre entreprise ?</h3>
+                    <p class="text-black mb-6">Démarrez avec un audit gratuit personnalisé de vos processus</p>
+                    <a href="#contact" class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all">
+                        Devis Offert
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires Section -->
+    <section id="partenaires" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Nos <span class="gradient-text">Partenaires</span> Technologiques
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Nous travaillons avec les leaders du marché pour vous garantir des solutions robustes et évolutives
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700 text-center">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">n8n</h3>
+                    <p class="text-gray-400 mb-4">Automatisation open-source flexible et personnalisable</p>
+                    <span class="text-sm text-green-500">Partenaire Certifié</span>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700 text-center">
+                    <div class="text-cyan-500 text-4xl mb-4">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Make</h3>
+                    <p class="text-gray-400 mb-4">Plateforme d'automatisation visuelle et intuitive</p>
+                    <span class="text-sm text-cyan-500">Expert Certifié</span>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700 text-center">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Zapier</h3>
+                    <p class="text-gray-400 mb-4">Solution d'automatisation simple et accessible</p>
+                    <span class="text-sm text-blue-500">Partenaire Officiel</span>
+                </div>
+
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700 text-center">
+                    <div class="text-purple-500 text-4xl mb-4">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Google</h3>
+                    <p class="text-gray-400 mb-4">Analytics, Workspace et solutions cloud</p>
+                    <span class="text-sm text-purple-500">Certifié Analytics</span>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 text-lg">
+                    Et bien d'autres partenaires technologiques selon vos besoins : 
+                    <strong class="text-green-500">HubSpot, Salesforce, Slack, Microsoft 365, AWS, Azure...</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">FAQ</span> - Questions Fréquentes
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Toutes les réponses à vos questions sur l'automatisation IA
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq1')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Combien de temps faut-il pour voir les premiers résultats ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq1-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq1-answer">
+                        <p class="text-gray-300">
+                            Les premiers résultats sont visibles dès la première semaine pour les automatisations simples 
+                            (facturation, emails). Pour les projets plus complexes, comptez 2-4 semaines. 
+                            Le ROI complet est généralement atteint en 3-6 mois selon la complexité.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq2')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Faut-il des compétences techniques dans mon équipe ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq2-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq2-answer">
+                        <p class="text-gray-300">
+                            Non, c'est notre rôle ! Nous concevons, déployons et formons vos équipes. 
+                            Vous n'avez besoin que de personnes motivées pour apprendre les nouveaux processus. 
+                            La formation est incluse dans tous nos packs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq3')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Quels sont les risques de l'automatisation ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq3-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq3-answer">
+                        <p class="text-gray-300">
+                            Les principaux risques sont la résistance au changement et la mauvaise conception des workflows. 
+                            C'est pourquoi nous privilégions une approche progressive, avec formation et accompagnement. 
+                            Nous gardons toujours des sauvegardes et procédures manuelles de secours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq4')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Mes données sont-elles sécurisées ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq4-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq4-answer">
+                        <p class="text-gray-300">
+                            Absolument. Nous utilisons uniquement des plateformes certifiées (ISO 27001, SOC 2, GDPR). 
+                            Vos données restent chiffrées et vous gardez le contrôle total. 
+                            Nous pouvons aussi implémenter des solutions on-premise si nécessaire.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq5')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Que se passe-t-il si je ne suis pas satisfait ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq5-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq5-answer">
+                        <p class="text-gray-300">
+                            Nous offrons une garantie satisfaction 30 jours. Si les résultats ne correspondent pas 
+                            à vos attentes, nous ajustons gratuitement ou vous remboursons. 
+                            Notre objectif est votre succès à long terme.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-gray-800 bg-opacity-50 rounded-xl p-6" onclick="toggleFAQ('faq6')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-green-500">Puis-je commencer petit et évoluer ?</h3>
+                        <i class="fas fa-chevron-down text-green-500 transition-transform" id="faq6-icon"></i>
+                    </div>
+                    <div class="faq-answer mt-4" id="faq6-answer">
+                        <p class="text-gray-300">
+                            C'est même recommandé ! Nous préconisons de commencer par 1-2 processus simples 
+                            pour valider l'approche, puis d'étendre progressivement. 
+                            Tous nos packs sont évolutifs et modulaires.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-900 bg-opacity-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Contactez-<span class="gradient-text">nous</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Prêt à automatiser vos processus ? Commençons par un audit offert !
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Parlons de votre projet</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-green-500 text-xl mr-4"></i>
+                            <a href="mailto:cyril@oakflowai.com" class="hover:text-green-500 transition-colors">
+                                cyril@oakflowai.com
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin text-green-500 text-xl mr-4"></i>
+                            <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" class="hover:text-green-500 transition-colors">
+                                linkedin.com/in/de-la-rue
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-green-500 text-xl mr-4"></i>
+                            <span>www.oakflowai.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar-alt text-green-500 text-xl mr-4"></i>
+                            <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="hover:text-green-500 transition-colors">
+                                Réserver un appel découverte
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h4 class="font-bold mb-3">Pourquoi choisir OAKFLOW AI ?</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                20 ans d'expérience business
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Expertise IA reconnue
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Approche sur-mesure PME/TPE
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                ROI garanti et mesurable
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <form class="space-y-6" action="mailto:cyril@oakflowai.com" method="post" enctype="text/plain">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nom *</label>
+                            <input type="text" name="nom" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Entreprise</label>
+                            <input type="text" name="entreprise" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Téléphone</label>
+                            <input type="tel" name="telephone" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Votre projet d'automatisation</label>
+                            <textarea name="projet" rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-white" placeholder="Décrivez brièvement vos besoins..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 rounded-lg text-white font-semibold text-lg">
+                            Envoyer ma demande
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-8 w-8">
+                        <span class="text-lg font-bold gradient-text">OAKFLOW AI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Automatisation intelligente pour PME & TPE
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-green-500">Pack Découverte</a></li>
+                        <li><a href="#services" class="hover:text-green-500">Pack Transformation</a></li>
+                        <li><a href="#services" class="hover:text-green-500">Pack Entreprise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Ressources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#blog" class="hover:text-green-500">Blog</a></li>
+                        <li><a href="#portfolio" class="hover:text-green-500">Portfolio</a></li>
+                        <li><a href="#faq" class="hover:text-green-500">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>cyril@oakflowai.com</li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" class="hover:text-green-500">
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Consultation%20OAKFLOW%20AI&dates=20241201T140000Z/20241201T150000Z&details=Consultation%20gratuite%20de%2030%20min%20pour%20discuter%20de%20votre%20projet%20d'automatisation%20IA&location=Visioconférence" target="_blank" class="hover:text-green-500">
+                                Réserver un appel
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 OAKFLOW AI. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog Modals -->
+    <div id="blog1" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog1')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">De directeur à expert IA : mon parcours de transformation</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 7 min de lecture • 👤 Témoignage</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>Mon retour d'expérience sur la transition du management traditionnel vers l'expertise en automatisation IA pour entreprises.</strong></p>
+                
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg text-center">
+                    <p class="text-black font-medium">"Après 20 ans de direction, j'ai tout quitté pour me reconvertir dans l'IA. Voici pourquoi et comment."</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🎯 Le Déclic : Pourquoi Cette Reconversion ?</h2>
+                <p>En 2023, après deux décennies passées à diriger des équipes chez ALL/Appart'City, j'ai pris une décision qui a surpris mon entourage : me reconvertir dans l'intelligence artificielle à 53 ans.</p>
+
+                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-bold text-green-500 mb-3">📊 2003-2023 : 20 Ans de Management</h3>
+                    <ul class="space-y-2">
+                        <li><strong>Directeur Général</strong> - ALL/Appart'City</li>
+                        <li><strong>Expertise</strong> : Gestion, Finance, Marketing Digital</li>
+                        <li><strong>Équipes</strong> : 150+ collaborateurs</li>
+                        <li><strong>Certifications</strong> : Google Analytics, Marketing Digital</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-500">
+                    <h3 class="text-xl font-bold text-cyan-500 mb-3">🤖 2024 : Le Virage IA</h3>
+                    <ul class="space-y-2">
+                        <li><strong>Formation intensive</strong> : Agents IA, n8n, Make</li>
+                        <li><strong>Spécialisation</strong> : Automatisation PME/TPE</li>
+                        <li><strong>Création</strong> : OAKFLOW AI</li>
+                        <li><strong>Mission</strong> : Démocratiser l'IA pour les entreprises</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">💡 Les Déclencheurs de ma Reconversion</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500">1. L'Observation du Terrain</h3>
+                        <p>En tant que directeur, j'ai vu mes équipes perdre des heures sur des tâches répétitives. J'ai calculé qu'on perdait <strong>30% de notre temps</strong> sur des processus automatisables.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500">2. L'Évolution Technologique</h3>
+                        <p>L'émergence de ChatGPT et des outils no-code comme n8n a démocratisé l'IA. J'ai réalisé qu'on pouvait automatiser sans être développeur.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500">3. Le Besoin du Marché</h3>
+                        <p>Les PME/TPE cherchent désespérément à optimiser leurs processus, mais manquent d'expertise. C'était le moment parfait pour me positionner.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🏆 Mes Premiers Résultats</h2>
+                <ul class="space-y-2">
+                    <li><strong>15 entreprises</strong> accompagnées en 2024</li>
+                    <li><strong>ROI moyen</strong> : 300% sur les automatisations</li>
+                    <li><strong>Temps économisé</strong> : 25h/semaine par entreprise</li>
+                    <li><strong>Satisfaction client</strong> : 95% recommandent</li>
+                </ul>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg text-center">
+                    <p class="text-black font-medium">"Ma reconversion prouve qu'il n'est jamais trop tard pour se réinventer. L'IA n'est pas qu'une affaire de jeunes développeurs."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog2" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog2')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Pourquoi former votre équipe à l'automatisation IA</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 9 min de lecture • 🎓 Formation</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>L'importance de la conduite du changement et de la formation pour maximiser l'adoption et le ROI de vos projets automatisation.</strong></p>
+                
+                <div class="bg-gray-800 p-6 rounded-lg text-center border-l-4 border-green-500">
+                    <div class="text-4xl font-bold text-green-500 mb-2">70%</div>
+                    <p>des projets d'automatisation échouent à cause de la résistance au changement</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🚨 Le Piège de l'Automatisation sans Formation</h2>
+                <p>Beaucoup d'entreprises investissent massivement dans l'automatisation, mais négligent l'humain. Résultat : des outils perfectionnés qui ne sont pas utilisés.</p>
+
+                <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg border-l-4 border-red-500">
+                    <h3 class="font-bold text-red-400 mb-3">❌ Résistances Classiques Observées</h3>
+                    <ul class="space-y-2">
+                        <li><strong>"Ça va supprimer des emplois"</strong> - Peur du licenciement</li>
+                        <li><strong>"C'est trop compliqué"</strong> - Peur de la technologie</li>
+                        <li><strong>"On a toujours fait comme ça"</strong> - Résistance au changement</li>
+                        <li><strong>"Je n'ai pas le temps"</strong> - Surcharge cognitive</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🎯 Pourquoi Former est Indispensable</h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500 mb-2">1. Maximiser l'Adoption</h3>
+                        <p>Une équipe formée utilise <strong>85%</strong> des fonctionnalités automatisées vs <strong>30%</strong> pour une équipe non formée.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500 mb-2">2. Accélérer le ROI</h3>
+                        <p>Les entreprises qui forment leurs équipes atteignent leur ROI cible <strong>3x plus rapidement</strong>.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500 mb-2">3. Réduire les Erreurs</h3>
+                        <p>Formation = <strong>-60% d'erreurs</strong> d'utilisation et <strong>-40% de tickets support</strong>.</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h3 class="font-bold text-green-500 mb-2">4. Améliorer l'Engagement</h3>
+                        <p>Équipes formées = <strong>+45% de satisfaction</strong> et <strong>-25% de turnover</strong>.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🚀 Notre Approche OAKFLOW AI</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg border-l-4 border-green-500">
+                        <h4 class="font-bold text-green-400 mb-2">🔍 Phase 1 : Diagnostic et Sensibilisation</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>• Évaluation du niveau technique actuel</li>
+                            <li>• Identification des "champions" potentiels</li>
+                            <li>• Cartographie des résistances</li>
+                            <li>• Session d'évangélisation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-cyan-900 bg-opacity-30 p-4 rounded-lg border-l-4 border-cyan-500">
+                        <h4 class="font-bold text-cyan-400 mb-2">🎓 Phase 2 : Formation Progressive</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>• <strong>Niveau 1</strong> : Sensibilisation générale (2h)</li>
+                            <li>• <strong>Niveau 2</strong> : Utilisation quotidienne (1 jour)</li>
+                            <li>• <strong>Niveau 3</strong> : Création de workflows (2 jours)</li>
+                            <li>• <strong>Niveau 4</strong> : Administration avancée (3 jours)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h4 class="font-bold text-blue-400 mb-2">📞 Phase 3 : Accompagnement Continu</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>• Hotline technique dédiée (3 mois)</li>
+                            <li>• Sessions de Q&A hebdomadaires</li>
+                            <li>• Mise à jour des formations</li>
+                            <li>• Suivi personnalisé</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg">
+                    <h3 class="text-black font-bold mb-2">🤝 Prêt à Former votre Équipe ?</h3>
+                    <p class="text-black">OAKFLOW AI vous accompagne dans la transformation de vos collaborateurs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog3" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog3')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Guide complet : Automatiser sa comptabilité client-fournisseur</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 10 min de lecture • 📁 Guide Pratique</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>Découvrez comment automatiser vos processus comptables pour gagner jusqu'à 70% de temps sur la saisie et le suivi des factures.</strong></p>
+                
+                <h2 class="text-2xl font-bold text-green-500">🎯 Objectifs de ce guide</h2>
+                <ul class="space-y-2">
+                    <li>• Identifier les processus comptables automatisables</li>
+                    <li>• Choisir les bons outils d'automatisation</li>
+                    <li>• Mettre en place des workflows efficaces</li>
+                    <li>• Mesurer l'impact sur votre productivité</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-green-500">📊 Les défis de la comptabilité manuelle</h2>
+                <p>Les PME/TPE perdent en moyenne <strong>15 heures par semaine</strong> sur des tâches comptables répétitives :</p>
+                <ul class="space-y-2">
+                    <li>• Saisie manuelle des factures</li>
+                    <li>• Rapprochement bancaire</li>
+                    <li>• Suivi des impayés</li>
+                    <li>• Génération des rapports</li>
+                </ul>
+
+                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500">
+                    <h2 class="text-xl font-bold text-green-500 mb-4">🚀 Solutions d'automatisation</h2>
+                    <p class="mb-4">Avec les bons outils, vous pouvez automatiser :</p>
+                    <ul class="space-y-2">
+                        <li>• <strong>OCR intelligent</strong> : Lecture automatique des factures</li>
+                        <li>• <strong>Workflows n8n/Make</strong> : Processus de validation</li>
+                        <li>• <strong>Intégrations API</strong> : Synchronisation automatique</li>
+                        <li>• <strong>Rapports automatiques</strong> : Tableaux de bord en temps réel</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">💡 Étapes de mise en œuvre</h2>
+                <ol class="space-y-2">
+                    <li>1. <strong>Audit des processus</strong> actuels</li>
+                    <li>2. <strong>Mapping des données</strong> et flux</li>
+                    <li>3. <strong>Configuration des outils</strong> d'automatisation</li>
+                    <li>4. <strong>Tests et ajustements</strong></li>
+                    <li>5. <strong>Formation des équipes</strong></li>
+                    <li>6. <strong>Monitoring et optimisation</strong></li>
+                </ol>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg">
+                    <h3 class="text-black font-bold mb-2">🚀 Prêt à automatiser votre comptabilité ?</h3>
+                    <p class="text-black">OAKFLOW AI vous accompagne dans la transformation de vos processus comptables.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog4" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog4')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">n8n vs Make vs Zapier : le guide du dirigeant</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 15 min de lecture • ⚖️ Comparatif</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>Comparatif objectif des 3 plateformes leaders avec recommandations selon votre taille d'entreprise et vos besoins spécifiques.</strong></p>
+
+                <h2 class="text-2xl font-bold text-green-500">🎯 Synthèse Exécutive</h2>
+                <p>En tant que dirigeant, vous cherchez la solution d'automatisation qui maximisera votre ROI tout en s'adaptant à vos contraintes techniques et budgétaires.</p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-xl font-bold text-green-500 mb-3">🏆 n8n - Le Champion Technique</h3>
+                        <p class="text-sm mb-3"><strong>Idéal pour :</strong> Entreprises avec équipe technique</p>
+                        <p class="text-sm mb-3"><strong>Avantages :</strong> Open source, customisation illimitée</p>
+                        <p class="text-sm mb-3"><strong>Inconvénients :</strong> Courbe d'apprentissage</p>
+                        <div class="bg-green-500 text-black p-2 rounded text-sm font-bold">PME tech-savvy (50+ employés)</div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-500">
+                        <h3 class="text-xl font-bold text-cyan-500 mb-3">⚡ Make - L'Équilibre Parfait</h3>
+                        <p class="text-sm mb-3"><strong>Idéal pour :</strong> PME en croissance</p>
+                        <p class="text-sm mb-3"><strong>Avantages :</strong> Interface visuelle, support français</p>
+                        <p class="text-sm mb-3"><strong>Inconvénients :</strong> Coût croissant</p>
+                        <div class="bg-cyan-500 text-black p-2 rounded text-sm font-bold">PME/TPE (10-100 employés)</div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-blue-500 mb-3">🚀 Zapier - Le Leader Accessible</h3>
+                        <p class="text-sm mb-3"><strong>Idéal pour :</strong> TPE/PME débutantes</p>
+                        <p class="text-sm mb-3"><strong>Avantages :</strong> Simplicité, fiabilité</p>
+                        <p class="text-sm mb-3"><strong>Inconvénients :</strong> Coût élevé</p>
+                        <div class="bg-blue-500 text-black p-2 rounded text-sm font-bold">TPE/PME (5-50 employés)</div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">📊 Comparaison Détaillée</h2>
+                <div class="bg-gray-800 p-6 rounded-lg overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-green-500 text-black">
+                                <th class="p-3 text-left">Critères</th>
+                                <th class="p-3 text-center">n8n</th>
+                                <th class="p-3 text-center">Make</th>
+                                <th class="p-3 text-center">Zapier</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3 font-bold">Facilité d'usage</td>
+                                <td class="p-3 text-center">⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3 font-bold">Flexibilité</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3 font-bold">Rapport qualité/prix</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold">Support</td>
+                                <td class="p-3 text-center">⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐</td>
+                                <td class="p-3 text-center">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🎯 Plan d'Action Recommandé</h2>
+                <ol class="space-y-2">
+                    <li>1. <strong>Audit de vos processus</strong> : Identifiez 3-5 automatisations prioritaires</li>
+                    <li>2. <strong>Test gratuit</strong> : Essayez Make et Zapier sur un cas d'usage simple</li>
+                    <li>3. <strong>Pilot projet</strong> : Déployez votre première automatisation</li>
+                    <li>4. <strong>Formation équipe</strong> : Formez 2-3 collaborateurs clés</li>
+                    <li>5. <strong>Déploiement progressif</strong> : Étendez selon vos résultats</li>
+                </ol>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg">
+                    <h3 class="text-black font-bold mb-2">🚀 Prêt à Automatiser ?</h3>
+                    <p class="text-black">Bénéficiez d'un audit gratuit et d'une stratégie d'automatisation personnalisée.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog5" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog5')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">5 processus prioritaires à automatiser dans votre PME</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 8 min de lecture • 📊 Top 5</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>Facturation, CRM, marketing, RH, reporting : identifiez les quick wins pour un ROI immédiat sur vos investissements automatisation.</strong></p>
+                
+                <h2 class="text-2xl font-bold text-green-500">🎯 Pourquoi prioriser l'automatisation ?</h2>
+                <p>Les PME qui automatisent intelligemment gagnent <strong>25 heures par semaine</strong> et augmentent leur productivité de <strong>40%</strong>. Mais par où commencer ?</p>
+
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-xl font-bold text-green-500 mb-3">1. 💰 Processus de Facturation</h3>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-green-500 text-black px-3 py-1 rounded font-bold">ROI 300%</span>
+                            <span class="text-sm">Temps économisé : 8h/semaine</span>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Génération automatique des devis</li>
+                            <li>• Envoi automatisé des factures</li>
+                            <li>• Relances de paiement programmées</li>
+                            <li>• Rapprochement bancaire automatique</li>
+                        </ul>
+                        <p class="text-sm mt-3"><strong>Outils recommandés :</strong> n8n + Stripe + votre logiciel comptable</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-500">
+                        <h3 class="text-xl font-bold text-cyan-500 mb-3">2. 📊 Gestion CRM et Leads</h3>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-cyan-500 text-black px-3 py-1 rounded font-bold">ROI 250%</span>
+                            <span class="text-sm">Temps économisé : 6h/semaine</span>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Capture automatique des leads web</li>
+                            <li>• Qualification et scoring automatisés</li>
+                            <li>• Séquences d'emails personnalisées</li>
+                            <li>• Suivi commercial automatisé</li>
+                        </ul>
+                        <p class="text-sm mt-3"><strong>Outils recommandés :</strong> Make + HubSpot/Pipedrive + MailChimp</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-blue-500 mb-3">3. 📧 Marketing Digital</h3>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-blue-500 text-black px-3 py-1 rounded font-bold">ROI 200%</span>
+                            <span class="text-sm">Temps économisé : 5h/semaine</span>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Publication automatisée sur réseaux sociaux</li>
+                            <li>• Campagnes email triggered</li>
+                            <li>• Lead nurturing automatisé</li>
+                            <li>• Reporting marketing unifié</li>
+                        </ul>
+                        <p class="text-sm mt-3"><strong>Outils recommandés :</strong> Zapier + Buffer + Mailjet + Google Analytics</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-purple-500">
+                        <h3 class="text-xl font-bold text-purple-500 mb-3">4. 👥 Gestion RH et Onboarding</h3>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-purple-500 text-black px-3 py-1 rounded font-bold">ROI 180%</span>
+                            <span class="text-sm">Temps économisé : 4h/semaine</span>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Processus de recrutement automatisé</li>
+                            <li>• Onboarding nouveaux employés</li>
+                            <li>• Gestion des congés et absences</li>
+                            <li>• Évaluations de performance</li>
+                        </ul>
+                        <p class="text-sm mt-3"><strong>Outils recommandés :</strong> n8n + BambooHR + Slack + Google Workspace</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-orange-500">
+                        <h3 class="text-xl font-bold text-orange-500 mb-3">5. 📈 Reporting et Analytics</h3>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-orange-500 text-black px-3 py-1 rounded font-bold">ROI 150%</span>
+                            <span class="text-sm">Temps économisé : 3h/semaine</span>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Tableaux de bord automatisés</li>
+                            <li>• Rapports financiers en temps réel</li>
+                            <li>• KPIs business automatisés</li>
+                            <li>• Alertes sur seuils critiques</li>
+                        </ul>
+                        <p class="text-sm mt-3"><strong>Outils recommandés :</strong> Make + Google Data Studio + votre ERP</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🚀 Par où commencer ?</h2>
+                <ol class="space-y-2">
+                    <li>1. <strong>Auditez</strong> vos processus actuels</li>
+                    <li>2. <strong>Calculez</strong> le temps passé sur chaque tâche</li>
+                    <li>3. <strong>Priorisez</strong> selon le ROI potentiel</li>
+                    <li>4. <strong>Commencez</strong> par la facturation (ROI immédiat)</li>
+                    <li>5. <strong>Étendez</strong> progressivement aux autres processus</li>
+                </ol>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg">
+                    <h3 class="text-black font-bold mb-2">🚀 Prêt à identifier vos quick wins ?</h3>
+                    <p class="text-black">OAKFLOW AI vous accompagne dans l'audit et la priorisation de vos automatisations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog6" class="blog-modal">
+        <div class="blog-content">
+            <span class="close-modal" onclick="closeBlogModal('blog6')">&times;</span>
+            <div class="text-center mb-8">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="OAKFLOW AI" class="h-16 w-16 mx-auto mb-4">
+                <h1 class="text-3xl font-bold gradient-text mb-2">ROI de l'automatisation : calculs et exemples réels</h1>
+                <p class="text-gray-400">📅 2024 • ⏱️ 12 min de lecture • 📊 Métriques</p>
+            </div>
+            
+            <div class="space-y-6 text-gray-300">
+                <p class="text-lg"><strong>Méthodes de calcul, KPIs à suivre et template Excel gratuit pour mesurer l'impact de vos projets d'automatisation.</strong></p>
+                
+                <h2 class="text-2xl font-bold text-green-500">🧮 Formule de Base du ROI</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500 text-center">
+                    <div class="text-2xl font-mono text-green-500 font-bold">
+                        ROI = (Bénéfices - Coûts) / Coûts × 100
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">💰 Composantes du Calcul</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-green-500 mb-3">Bénéfices Mesurables :</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• <strong>Économies de temps :</strong> Heures × Coût horaire</li>
+                            <li>• <strong>Réduction d'erreurs :</strong> Coût des erreurs évitées</li>
+                            <li>• <strong>Amélioration qualité :</strong> Satisfaction client</li>
+                            <li>• <strong>Scalabilité :</strong> Capacité sans embauche</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-red-500 mb-3">Coûts d'Automatisation :</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• <strong>Outils et licences :</strong> Abonnements mensuels</li>
+                            <li>• <strong>Développement :</strong> Temps de mise en place</li>
+                            <li>• <strong>Formation :</strong> Équipe et maintenance</li>
+                            <li>• <strong>Infrastructure :</strong> Serveurs, intégrations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">📊 Exemple Concret : PME 50 Employés</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-500">
+                    <h3 class="text-xl font-bold text-cyan-500 mb-4">🎯 Automatisation Facturation</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-red-400 mb-2">Situation Avant :</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Temps facturation : 8h/semaine</li>
+                                <li>• Coût horaire : 35€</li>
+                                <li>• Erreurs mensuelles : 2 (coût : 200€/erreur)</li>
+                                <li>• Retards de paiement : 15 jours moyenne</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-green-400 mb-2">Après Automatisation :</h4>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Temps facturation : 1h/semaine</li>
+                                <li>• Erreurs mensuelles : 0</li>
+                                <li>• Retards de paiement : 5 jours moyenne</li>
+                                <li>• Coût solution : 150€/mois</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg mt-4">
+                        <h4 class="font-bold text-green-400 mb-2">Calcul ROI Annuel :</h4>
+                        <div class="text-sm space-y-1">
+                            <p>Économies = (7h × 35€ × 52 semaines) + (2 × 200€ × 12 mois) + amélioration cashflow</p>
+                            <p>= 12,740€ + 4,800€ + 2,000€ = <strong>19,540€/an</strong></p>
+                            <p>Coûts = 150€ × 12 mois = <strong>1,800€/an</strong></p>
+                            <p class="text-lg font-bold text-green-400">ROI = (19,540 - 1,800) / 1,800 × 100 = 985%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">📈 KPIs à Suivre</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="bg-green-500 text-black p-3 rounded-lg text-center font-bold">Temps économisé</div>
+                    <div class="bg-cyan-500 text-black p-3 rounded-lg text-center font-bold">Taux d'erreur</div>
+                    <div class="bg-blue-500 text-black p-3 rounded-lg text-center font-bold">Satisfaction client</div>
+                    <div class="bg-purple-500 text-black p-3 rounded-lg text-center font-bold">Délai traitement</div>
+                    <div class="bg-orange-500 text-black p-3 rounded-lg text-center font-bold">Coût par transaction</div>
+                    <div class="bg-red-500 text-black p-3 rounded-lg text-center font-bold">Productivité équipe</div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-green-500">🚀 Méthodologie OAKFLOW AI</h2>
+                
+                <ol class="space-y-2">
+                    <li>1. <strong>Audit initial :</strong> Mesure de la situation actuelle</li>
+                    <li>2. <strong>Définition objectifs :</strong> KPIs cibles</li>
+                    <li>3. <strong>Calcul ROI prévisionnel :</strong> Business case</li>
+                    <li>4. <strong>Implémentation :</strong> Déploiement progressif</li>
+                    <li>5. <strong>Mesure continue :</strong> Suivi mensuel</li>
+                    <li>6. <strong>Optimisation :</strong> Amélioration continue</li>
+                </ol>
+
+                <div class="bg-gradient-to-r from-green-500 to-cyan-500 p-6 rounded-lg">
+                    <h3 class="text-black font-bold mb-2">📊 Calculez votre ROI automatisation</h3>
+                    <p class="text-black">OAKFLOW AI vous accompagne dans le calcul et l'optimisation de votre ROI.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        // FAQ toggle
+        function toggleFAQ(faqId) {
+            const answer = document.getElementById(faqId + '-answer');
+            const icon = document.getElementById(faqId + '-icon');
+            
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Blog modal functions
+        function openBlogModal(blogId) {
+            document.getElementById(blogId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal(blogId) {
+            document.getElementById(blogId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('blog-modal')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
