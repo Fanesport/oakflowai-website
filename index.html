@@ -48,6 +48,42 @@
     @media (max-width: 640px){ .brand-badge{height:3.25rem;width:100%} }
   
     .no-overflow{overflow-wrap:anywhere;word-break:break-word}
+  
+/* ==== Fallback CSS if Tailwind fails to load ==== */
+a{color:#10b981;text-decoration:none}
+a:hover{text-decoration:underline}
+/* Desktop nav visible, mobile hidden by default */
+#siteMenu{display:none;align-items:center;gap:1.25rem;list-style:none;margin:0;padding:0}
+@media (min-width:768px){#siteMenu{display:flex} #navToggle{display:none}}
+#mobileMenu{display:none;list-style:none;margin:0;padding:0}
+/* Mobile menu when JS toggles 'open' */
+#mobileMenu.open{display:flex}
+/* Containers */
+.mx-auto{max-width:80rem;margin-left:auto;margin-right:auto}
+.px-4{padding-left:1rem;padding-right:1rem}
+.py-20{padding-top:5rem;padding-bottom:5rem}
+.text-center{text-align:center}
+/* Cards & buttons already have base styles; add some spacing */
+.card{padding:1rem;margin:0;border-radius:1rem;background:rgba(31,41,55,.6);border:1px solid rgba(55,65,81,.8)}
+.btn-primary{display:inline-block;padding:.75rem 1rem;border-radius:.75rem;background:linear-gradient(135deg,#10b981,#06b6d4);color:#000;font-weight:600}
+/* Headings */
+h1,h2,h3{margin:0 0 .5rem 0}
+h1{font-size:2.25rem;line-height:1.2;font-weight:800}
+h2{font-size:2rem;line-height:1.2;font-weight:800}
+h3{font-size:1.25rem;line-height:1.2;font-weight:700}
+/* Utilities commonly used */
+.text-gray-300{color:#d1d5db}
+.text-gray-400{color:#9ca3af}
+.rounded{border-radius:.5rem}
+.rounded-lg{border-radius:.75rem}
+.grid{display:grid;gap:1rem}
+@media(min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))} .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))} .lg\:grid-cols-7{grid-template-columns:repeat(7,minmax(0,1fr))}}
+/* FAQ transition fallback */
+.faq-item .max-h-0{max-height:0;overflow:hidden}
+/* Brand badges */
+.brand-badge{display:flex;align-items:center;justify-content:center;border-radius:.5rem;padding:.25rem .5rem;font-weight:800;white-space:normal;overflow:hidden;text-align:center;line-height:1.1}
+
   </style>
 
   <!-- JSON-LD Organization -->
@@ -534,7 +570,7 @@
       navToggle.addEventListener('click', () => {
         const expanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', String(!expanded));
-        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('open');
       });
     }
 
