@@ -601,7 +601,8 @@
             <p class="text-muted mt-3">Google Drive.</p>
           </div>
           <div class="card p-6 cursor-pointer" onclick="window.open('https://onedrive.live.com','_blank')">
-            <img src="https://cdn.simpleicons.org/microsoftonedrive/ffffff" alt="OneDrive logo" class="brand-logo"/>
+            <!-- Utilisation d'une icône FontAwesome pour garantir l'affichage -->
+            <i class="fas fa-cloud fa-3x" style="color:#FFFFFF;"></i>
             <p class="text-muted mt-3">Microsoft OneDrive.</p>
           </div>
           <div class="card p-6 cursor-pointer" onclick="window.open('https://www.airtable.com/product','_blank')">
@@ -609,7 +610,8 @@
             <p class="text-muted mt-3">Base no‑code.</p>
           </div>
           <div class="card p-6 cursor-pointer" onclick="window.open('https://mistral.ai','_blank')">
-            <img src="https://logo.clearbit.com/mistral.ai" alt="Mistral AI logo" class="brand-logo"/>
+            <!-- Icône générique représentant le vent pour Mistral AI -->
+            <i class="fas fa-wind fa-3x" style="color:#FFFFFF;"></i>
             <p class="text-muted mt-3">Mistral AI.</p>
           </div>
         </div>
@@ -639,6 +641,32 @@
         transition: opacity .2s ease;
       }
       .btn-primary:hover { opacity: .85; }
+
+      /* Taille et alignement des logos de la rubrique Partenaires */
+      .brand-logo {
+        height: 3rem;
+        width: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+      }
+
+      /* Couleur de texte atténuée pour les descriptions */
+      .text-muted {
+        color: #9CA3AF;
+      }
+
+      /* Cartes des partenaires avec légère transparence et effet de survol */
+      .card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+      }
     </style>
 
     <!-- Testimonials Section -->
