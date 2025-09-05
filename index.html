@@ -1159,48 +1159,26 @@ ${projet}
             });
         });
 </script>
-       <elevenlabs-convai 
-           agent-id="agent_01jykc9byff03b5qq5a71p633n"
-           webhook-url="https://your-n8n-webhook-url.com/webhook/elevenlabs"
-           enable-webhook="true"
-           webhook-events="conversation_start,conversation_end,message_sent,message_received"
-           debug="true">
-       </elevenlabs-convai>
+       <!-- Widget ElevenLabs avec webhook n8n corrigé -->
+<elevenlabs-convai 
+    agent-id="agent_01jykc9byff03b5qq5a71p633n"
+    webhook-url="https://n8n.srv944973.hstgr.cloud/webhook/elevenlabs-user-request"
+    enable-webhook="true"
+    debug="true">
+</elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 <script>
-// Configuration webhook pour n8n
-document.addEventListener('DOMContentLoaded', function() {
-    const convaiWidget = document.querySelector('elevenlabs-convai');
-    
-    if (convaiWidget) {
-        // Écouter les événements du widget
-        convaiWidget.addEventListener('conversation_start', function(event) {
-            console.log('Conversation démarrée:', event.detail);
-            sendToN8n('conversation_start', event.detail);
-        });
-        
-        convaiWidget.addEventListener('conversation_end', function(event) {
-            console.log('Conversation terminée:', event.detail);
-            sendToN8n('conversation_end', event.detail);
-        });
-        
-        convaiWidget.addEventListener('message_sent', function(event) {
-            console.log('Message envoyé:', event.detail);
-            sendToN8n('message_sent', event.detail);
-        });
-        
-        convaiWidget.addEventListener('message_received', function(event) {
-            console.log('Message reçu:', event.detail);
-            sendToN8n('message_received', event.detail);
-        });
+// Fonction pour envoyer les données à n8n (version optimisée)
+async function sendToN8n(eventType, data, retryCount = 0) {
+    // Validation des données d'entrée
+    if (!eventType || !data) {
+        console.error('eventType et data sont requis');
+        return false;
     }
-});
-
-// Fonction pour envoyer les données à n8n
-async function sendToN8n(eventType, data) {
+    
     try {
-        const webhookUrl = 'https://your-n8n-webhook-url.com/webhook/elevenlabs';
+        const webhookUrl = 'https://n8n.srv944973.hstgr.cloud/webhook/elevenlabs-user-request';
         
         const payload = {
             event_type: eventType,
@@ -1214,18 +1192,103 @@ async function sendToN8n(eventType, data) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: AbortSignal.timeout(10000) // Timeout de 10 secondes
         });
         
         if (response.ok) {
-            console.log('Données envoyées à n8n avec succès:', eventType);
+            console.log('✅ Données envoyées à n8n avec succès:', eventType);
+            return true;
         } else {
-            console.error('Erreur lors de l\'envoi à n8n:', response.status);
+            console.error('❌ Erreur lors de l\'envoi à n8n:', response.status);
+            
+            // Retry automatique en cas d'échec (une seule fois)
+            if (retryCount < 1) {
+                console.log('🔄 Tentative de renvoi...');
+                return sendToN8n(eventType, data, retryCount + 1);
+            }
+            return false;
         }
     } catch (error) {
-        console.error('Erreur webhook n8n:', error);
+        console.error('❌ Erreur webhook n8n:', error);
+        
+        // Retry automatique en cas d'erreur réseau (une seule fois)
+        if (retryCount < 1 && (error.name === 'TypeError' || error.name === 'TimeoutError')) {
+            console.log('🔄 Tentative de renvoi après erreur réseau...');
+            return sendToN8n(eventType, data, retryCount + 1);
+        }
+        return false;
     }
 }
+
+// Configuration webhook pour ElevenLabs
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🎧 Initialisation du widget ElevenLabs...');
+    
+    const convaiWidget = document.querySelector('elevenlabs-convai');
+    
+    if (convaiWidget) {
+        console.log('✅ Widget ElevenLabs trouvé');
+        
+        // Écouter tous les événements possibles
+        const events = [
+            'conversation_start',
+            'conversation_end', 
+            'message_sent',
+            'message_received',
+            'agent_response',
+            'user_message',
+            'widget_ready',
+            'widget_error'
+        ];
+        
+        events.forEach(eventType => {
+            convaiWidget.addEventListener(eventType, function(event) {
+                console.log(`🎯 Événement ${eventType}:`, event.detail);
+                sendToN8n(eventType, {
+                    ...event.detail,
+                    user_agent: navigator.userAgent,
+                    page_url: window.location.href,
+                    timestamp_local: new Date().toISOString()
+                });
+            });
+        });
+        
+        // Test de connexion au chargement
+        setTimeout(() => {
+            testN8nConnection();
+        }, 2000);
+        
+    } else {
+        console.error('❌ Widget ElevenLabs non trouvé');
+    }
+});
+
+// Fonction de test pour vérifier la connexion
+async function testN8nConnection() {
+    console.log('🧪 Test de connexion n8n...');
+    const success = await sendToN8n('test_connection', { 
+        message: 'Test de connexion depuis oakflowai.com',
+        page: 'accueil',
+        timestamp: new Date().toISOString()
+    });
+    
+    if (success) {
+        console.log('✅ Connexion n8n opérationnelle');
+    } else {
+        console.log('❌ Problème de connexion n8n');
+    }
+    
+    return success;
+}
+
+// Écouter les événements globaux du widget (fallback)
+window.addEventListener('message', function(event) {
+    if (event.data && event.data.type && event.data.type.includes('elevenlabs')) {
+        console.log('📨 Message global ElevenLabs:', event.data);
+        sendToN8n('widget_message', event.data);
+    }
+});
 </script>
 
 </body>
