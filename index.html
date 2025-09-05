@@ -218,7 +218,7 @@
                 20 ans d'expérience au service de votre transformation IA
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                Votre consultant senior en IA et Automatisation.<br>
+                Votre consultant en IA et Automatisation.<br>
                 Des solutions sur-mesure pour les PME/TPE : Audit, conseil et implémentation.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -250,14 +250,14 @@
                 <div class="text-center">
                     <div class="bg-gradient-to-br from-green-500 to-cyan-500 p-1 rounded-2xl inline-block mb-6">
                         <div class="bg-gray-900 p-3 rounded-2xl">
-                            <img src="https://page1.genspark.site/v1/base64_upload/0214aaeb29cbfe8603ae3cca5dda9bb7" 
+                            <img src="https://page.gensparksite.com/v1/base64_upload/777ffe7bed3b3d559c226a0856f21f29" 
                                  alt="Cyril DE LA RUE" 
                                  class="w-64 h-64 object-cover rounded-full border-4 border-green-500 mx-auto shadow-2xl">
                         </div>
                     </div>
                     <div>
                         <h3 class="text-3xl font-bold gradient-text mb-2">Cyril DE LA RUE</h3>
-                        <p class="text-xl text-gray-400 mb-6">Consultant Senior IA & Automatisation</p>
+                        <p class="text-xl text-gray-400 mb-6">Consultant IA & Automatisation</p>
                         
                         <div class="grid grid-cols-3 gap-4 mt-6">
                             <div class="text-center bg-gray-800 bg-opacity-50 p-4 rounded-lg">
@@ -343,7 +343,6 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Pack Découverte</h3>
-                    <div class="text-3xl font-bold text-green-500 mb-4">1 499€</div>
                     <p class="text-gray-300 mb-4"><strong>Audit de vos processus pour identifier 3 tâches à automatiser immédiatement</strong></p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Automatisation facturation</li>
@@ -362,7 +361,6 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Pack Transformation</h3>
-                    <div class="text-3xl font-bold text-cyan-500 mb-4">2 799€</div>
                     <p class="text-gray-300 mb-4"><strong>Implémentation complète de 3-5 workflows automatisés</strong></p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li><i class="fas fa-check text-green-500 mr-2"></i>CRM automatisé complet</li>
@@ -379,7 +377,6 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Pack Entreprise</h3>
-                    <div class="text-3xl font-bold text-blue-500 mb-4">Sur devis</div>
                     <p class="text-gray-300 mb-4"><strong>Accompagnement continu et IA personnalisée</strong></p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li><i class="fas fa-check text-green-500 mr-2"></i>Workflows illimités</li>
@@ -1162,8 +1159,74 @@ ${projet}
             });
         });
 </script>
-       <elevenlabs-convai agent-id="agent_01jykc9byff03b5qq5a71p633n"></elevenlabs-convai>
+       <elevenlabs-convai 
+           agent-id="agent_01jykc9byff03b5qq5a71p633n"
+           webhook-url="https://your-n8n-webhook-url.com/webhook/elevenlabs"
+           enable-webhook="true"
+           webhook-events="conversation_start,conversation_end,message_sent,message_received"
+           debug="true">
+       </elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<script>
+// Configuration webhook pour n8n
+document.addEventListener('DOMContentLoaded', function() {
+    const convaiWidget = document.querySelector('elevenlabs-convai');
+    
+    if (convaiWidget) {
+        // Écouter les événements du widget
+        convaiWidget.addEventListener('conversation_start', function(event) {
+            console.log('Conversation démarrée:', event.detail);
+            sendToN8n('conversation_start', event.detail);
+        });
+        
+        convaiWidget.addEventListener('conversation_end', function(event) {
+            console.log('Conversation terminée:', event.detail);
+            sendToN8n('conversation_end', event.detail);
+        });
+        
+        convaiWidget.addEventListener('message_sent', function(event) {
+            console.log('Message envoyé:', event.detail);
+            sendToN8n('message_sent', event.detail);
+        });
+        
+        convaiWidget.addEventListener('message_received', function(event) {
+            console.log('Message reçu:', event.detail);
+            sendToN8n('message_received', event.detail);
+        });
+    }
+});
+
+// Fonction pour envoyer les données à n8n
+async function sendToN8n(eventType, data) {
+    try {
+        const webhookUrl = 'https://your-n8n-webhook-url.com/webhook/elevenlabs';
+        
+        const payload = {
+            event_type: eventType,
+            timestamp: new Date().toISOString(),
+            data: data,
+            source: 'oakflowai-website'
+        };
+        
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        if (response.ok) {
+            console.log('Données envoyées à n8n avec succès:', eventType);
+        } else {
+            console.error('Erreur lors de l\'envoi à n8n:', response.status);
+        }
+    } catch (error) {
+        console.error('Erreur webhook n8n:', error);
+    }
+}
+</script>
 
 </body>
 </html>
